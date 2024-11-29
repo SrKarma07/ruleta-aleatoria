@@ -1,0 +1,159 @@
+/* Estilos para la ruleta circular */
+.ruleta-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    padding: 2rem 1rem; /* Aumenta el padding para evitar superposición con el footer */
+    overflow: hidden; /* Evita scroll innecesario */
+    margin-bottom: 3rem; /* Espacio adicional para el botón */
+}
+
+/* Wrapper para el canvas y el indicador */
+.roulette-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px; /* Aumenta el tamaño máximo del contenedor */
+    flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+}
+
+/* Canvas de la ruleta */
+.roulette-wrapper canvas {
+    width: 100%;
+    max-width: 800px; /* Aumenta el tamaño máximo del canvas */
+    height: auto; /* Mantiene el aspecto */
+    flex-shrink: 0;
+}
+
+/* Indicador para la Ruleta Circular */
+#indicator {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.5rem; /* Aumenta el espacio entre el canvas y el indicador */
+}
+
+/* Flecha del indicador */
+#triangleBig {
+    width: 0;
+    height: 0;
+    border-top: clamp(1vh, 2vw, 3vh) solid transparent;
+    border-bottom: clamp(1vh, 2vw, 3vh) solid transparent;
+    border-right: clamp(2vh, 4vw, 5vh) solid #d32f2f;
+}
+
+/* Rectángulo del indicador */
+#rectangleBig {
+    width: clamp(4vh, 8vw, 8vh);
+    height: clamp(1vh, 2vw, 2vh);
+    background-color: #d32f2f;
+}
+
+/* Botón centrado debajo del canvas */
+#startSpinBtnCircular {
+    margin-top: 1.5rem;
+    padding: 0.8em 1.5em;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    background-color:#ffcc00;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    z-index: 5; /* Asegura que esté por encima de otros elementos si es necesario */
+}
+
+#startSpinBtnCircular:hover {
+    background-color: #fefe00;
+}
+
+/* Responsividad según orientación */
+@media (orientation: portrait) {
+    .roulette-wrapper {
+        flex-direction: row; /* Distribuir canvas e indicador horizontalmente */
+        align-items: center;
+    }
+
+    #indicator {
+        margin-left: 1.5rem;
+    }
+}
+
+@media (orientation: landscape) {
+    .roulette-wrapper {
+        flex-direction: row; /* Mantener canvas e indicador en fila */
+        align-items: center;
+    }
+
+    #indicator {
+        margin-left: 1.5rem;
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .roulette-wrapper {
+        flex-direction: row; /* Mantener la disposición en fila */
+        align-items: center;
+    }
+
+    #indicator {
+        margin-left: 0.5rem; /* Reducir el margen en pantallas pequeñas */
+    }
+
+    #triangleBig {
+        border-top: clamp(1vh, 1.5vw, 2vh) solid transparent;
+        border-bottom: clamp(1vh, 1.5vw, 2vh) solid transparent;
+        border-right: clamp(2vh, 3vw, 4vh) solid #d32f2f;
+    }
+
+    #rectangleBig {
+        width: clamp(3vh, 6vw, 6vh);
+        height: clamp(0.8vh, 1.6vw, 1.6vh);
+    }
+
+    #startSpinBtnCircular {
+        padding: 0.6em 1em;
+        font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+    }
+}
+
+@media (max-height: 500px) {
+    .ruleta-container {
+        padding: 1rem;
+        margin-bottom: 1rem; /* Reducir el margen inferior en pantallas con poca altura */
+    }
+
+    .roulette-wrapper {
+        flex-direction: row; /* Mantener la disposición en fila */
+        align-items: center;
+    }
+
+    #indicator {
+        margin-left: 0.5rem;
+    }
+
+    #startSpinBtnCircular {
+        padding: 0.6em 1em;
+        font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+    }
+
+    #triangleBig {
+        border-top: clamp(1vh, 1.5vw, 2vh) solid transparent;
+        border-bottom: clamp(1vh, 1.5vw, 2vh) solid transparent;
+        border-right: clamp(2vh, 3vw, 4vh) solid #d32f2f;
+    }
+
+    #rectangleBig {
+        width: clamp(3vh, 6vw, 6vh);
+        height: clamp(0.8vh, 1.6vw, 1.6vh);
+    }
+}
